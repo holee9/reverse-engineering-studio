@@ -189,6 +189,9 @@ secret-*.*
 .codex.local/
 .worktrees/
 
+# Session-generated reports
+.moai/reports/session-*.md
+
 # ===========================================
 # Evolution Telemetry (local-only usage data)
 # Learnings and new-skills are git-tracked for team sharing.
