@@ -6,9 +6,22 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+$utf8Output = New-Object System.Text.UTF8Encoding $false
+[Console]::OutputEncoding = $utf8Output
+$OutputEncoding = $utf8Output
+
+$TextMap = @{
+    NoMatchingWorktree = "7ISg7YOd7ZWcIO2VhO2EsOyXkCDtlbTri7ntlZjripQgd29ya3RyZWXqsIAg7JeG7Iq164uI64ukOiB7MH0="
+}
+
+function Get-Text {
+    param([Parameter(Mandatory)][string]$Key)
+
+    return [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($TextMap[$Key]))
+}
 
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
-$null = Get-Content -LiteralPath (Join-Path $repoRoot ".codex\config\harness.json") -Raw | ConvertFrom-Json
+$null = Get-Content -LiteralPath (Join-Path $repoRoot ".codex\config\harness.json") -Raw -Encoding utf8 | ConvertFrom-Json
 
 $porcelain = @(& git worktree list --porcelain)
 
@@ -64,7 +77,7 @@ if ($AsJson) {
 }
 
 if (-not $items) {
-    Write-Host "No worktrees found for filter: $Team" -ForegroundColor Yellow
+    Write-Host ((Get-Text -Key "NoMatchingWorktree") -f $Team) -ForegroundColor Yellow
     return
 }
 

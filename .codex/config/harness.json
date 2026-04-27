@@ -6,7 +6,7 @@
   "worktreeRoot": ".worktrees",
   "controlCheckout": {
     "path": ".",
-    "purpose": "shared docs, policies, harness, and environment setup only",
+    "purpose": "공유 문서, 정책, 하네스, 환경 설정 전용",
     "appCodeWritesAllowed": false
   },
   "teams": {
@@ -30,7 +30,7 @@
   ],
   "phasePolicies": {
     "preclean": {
-      "description": "docs, backlog refinement, harness, CI/environment, and repository cleanup only",
+      "description": "문서, backlog 정제, 하네스, CI/환경 설정, 저장소 정리 전용",
       "allowedBranchTypes": [
         "docs",
         "chore",
@@ -46,7 +46,7 @@
       ]
     },
     "implementation": {
-      "description": "feature delivery after explicit phase approval",
+      "description": "명시적 phase 승인 이후 기능 구현 단계",
       "allowedBranchTypes": [
         "feature",
         "fix",

@@ -1,31 +1,31 @@
-# Worktree Handoff
+# Worktree 인수인계
 
-- Team:
-- Branch:
+- 팀:
+- 브랜치:
 - Worktree:
-- Issue or SPEC:
-- Current phase:
+- Issue 또는 SPEC:
+- 현재 phase:
 
-## Completed
-
-- 
-
-## Decisions
+## 완료한 내용
 
 - 
 
-## Files Touched
+## 결정 사항
 
 - 
 
-## Remaining Work
+## 수정한 파일
 
 - 
 
-## Blockers
+## 남은 작업
 
 - 
 
-## Next Recommended Action
+## Blocker
+
+- 
+
+## 다음 권장 작업
 
 - 
