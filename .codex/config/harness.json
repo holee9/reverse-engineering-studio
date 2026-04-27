@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "phase": "preclean",
+  "baseBranch": "main",
+  "runtimeRoot": ".codex.local",
+  "worktreeRoot": ".worktrees",
+  "controlCheckout": {
+    "path": ".",
+    "purpose": "shared docs, policies, harness, and environment setup only",
+    "appCodeWritesAllowed": false
+  },
+  "teams": {
+    "claude": {
+      "worktreePath": ".worktrees/claude",
+      "handoffTemplate": ".codex/templates/HANDOFF_TEMPLATE.md"
+    },
+    "codex": {
+      "worktreePath": ".worktrees/codex",
+      "handoffTemplate": ".codex/templates/HANDOFF_TEMPLATE.md"
+    }
+  },
+  "branchTypes": [
+    "feature",
+    "fix",
+    "docs",
+    "chore",
+    "refactor",
+    "test",
+    "spike"
+  ],
+  "phasePolicies": {
+    "preclean": {
+      "description": "docs, backlog refinement, harness, CI/environment, and repository cleanup only",
+      "allowedBranchTypes": [
+        "docs",
+        "chore",
+        "spike"
+      ],
+      "forbiddenGlobs": [
+        "**/*.cs",
+        "**/*.csproj",
+        "**/*.sln",
+        "**/*.xaml",
+        "src/**",
+        "tests/**"
+      ]
+    },
+    "implementation": {
+      "description": "feature delivery after explicit phase approval",
+      "allowedBranchTypes": [
+        "feature",
+        "fix",
+        "docs",
+        "chore",
+        "refactor",
+        "test",
+        "spike"
+      ],
+      "forbiddenGlobs": []
+    }
+  }
+}
